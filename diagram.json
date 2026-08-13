@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "author": "Trabajofinal26",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 4.84, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -174.8,
+      "left": 316.8,
+      "attrs": { "hornColor": "black" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": 103.6,
+      "left": 326.4,
+      "attrs": { "hornColor": "red" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo3",
+      "top": -69.2,
+      "left": 326.4,
+      "attrs": { "hornColor": "orange" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo4",
+      "top": 17.2,
+      "left": 326.4,
+      "attrs": { "hornColor": "blue" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -329.6,
+      "left": -100,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -69.2,
+      "left": -407.2,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-38.4", "v211.4", "h259.2", "v144" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-28.8", "v192.3", "h240", "v124.8" ] ],
+    [ "keypad1:R1", "esp:19", "green", [ "v76.8", "h499.2", "v-249.6" ] ],
+    [ "keypad1:R2", "esp:18", "green", [ "v67.2", "h479.6", "v-230.4" ] ],
+    [ "keypad1:R3", "esp:5", "green", [ "v57.6", "h460.5", "v-211.2" ] ],
+    [ "keypad1:R4", "esp:17", "green", [ "v48", "h441.4", "v-192" ] ],
+    [ "keypad1:C1", "esp:16", "green", [ "v38.4", "h422.3", "v-172.8" ] ],
+    [ "keypad1:C2", "esp:4", "green", [ "v28.8", "h403.2", "v-153.6" ] ],
+    [ "esp:15", "keypad1:C4", "green", [ "h24.04", "v105.6", "h-364.5" ] ],
+    [ "keypad1:C3", "esp:2", "green", [ "v19.2", "h383.85", "v-124.8" ] ],
+    [ "servo1:PWM", "esp:32", "green", [ "h-345.6", "v192.2" ] ],
+    [ "servo3:PWM", "esp:33", "green", [ "h-19.2", "v-95.8", "h-326.4", "v192" ] ],
+    [ "servo4:PWM", "esp:25", "green", [ "h-28.8", "v-172.6", "h-307.2", "v192" ] ],
+    [ "servo2:PWM", "esp:26", "green", [ "h-38.4", "v-211", "h-326.4", "v153.6" ] ],
+    [ "servo2:GND", "servo4:GND", "black", [ "h0" ] ],
+    [ "servo4:GND", "servo3:GND", "black", [ "h0" ] ],
+    [ "servo1:GND", "servo3:GND", "black", [ "h0" ] ],
+    [ "servo2:GND", "esp:GND.3", "black", [ "v-67.2", "h-225.64" ] ],
+    [ "lcd1:GND", "esp:GND.3", "black", [ "v-48", "h374.4", "v432" ] ]
+  ],
+  "dependencies": {}
+}
