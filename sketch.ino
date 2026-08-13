@@ -3,7 +3,7 @@
 #include <Keypad.h>
 #include <ESP32Servo.h>
 
-// Servos que representan las bombas
+
 const int PIN_BOMBA_NEGRO     = 32;
 const int PIN_BOMBA_AMARILLO  = 33;
 const int PIN_BOMBA_AZUL      = 25;
@@ -39,9 +39,6 @@ Keypad teclado = Keypad(
 );
 
 
-// Caudal de diseño de cada bomba en mL/s
-// Estos valores deben sustituirse por los valores
-// definidos en el diseño/calibración del proyecto.
 
 const float Q_NEGRO    = 1.0;
 const float Q_AMARILLO = 1.0;
@@ -99,13 +96,13 @@ void setup() {
 
   Serial.begin(115200);
 
-  // Vincular servos con sus respectivos pines
+
   servoNegro.attach(PIN_BOMBA_NEGRO);
   servoAmarillo.attach(PIN_BOMBA_AMARILLO);
   servoAzul.attach(PIN_BOMBA_AZUL);
   servoRojo.attach(PIN_BOMBA_ROJO);
 
-  // Inicializar actuadores en posición de apagado
+
   apagarTodasLasBombas();
 
   // Inicializar LCD
